@@ -4,18 +4,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import guru.springframework.sfgdi.services.GreetingService;
+
 @Controller
-public class ConstructorInjectedController {
-	
+public class I18nController {
 	private final GreetingService greetingService;
 
-	
-	public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
+	public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
 		super();
 		this.greetingService = greetingService;
 	}
 	
-	public String getGreeting() {
+	public String sayHello() {
 		return greetingService.sayGreeting();
 	}
 }
